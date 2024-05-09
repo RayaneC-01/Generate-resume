@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Générateur de CV</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
   </head>
   <body>
     <header>
@@ -14,19 +19,43 @@
       <section id="form-section">
         <h2>Informations personnelles</h2>
         <form id="cv-form">
-          <!-- Formulaires pour saisir les informations du CV -->
-          <label for="first-name">Prénom:</label>
-          <input type="text" id="first-name" name="first-name" />
-          <label for="last-name">Nom:</label>
-          <input type="text" id="last-name" name="last-name" />
-          <label for="email">email:</label>
-          <input type="text" id="email" name="email" />
-          <label for="phone">phone:</label>
-          <input type="number" id="phone" name="phone" />
-          <label for="address">address:</label>
-          <input type="text" id="address" name="address" />
-          <label for="summary">summary</label>
-          <input type="text" id="summary" name="summary" />
+          <fieldset>
+            <legend>Identité</legend>
+            <div class="form-group">
+              <label for="first-name">Prénom <span>*</span>:</label>
+              <input type="text" id="first-name" name="first-name" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Nom <span>*</span>:</label>
+              <input type="text" id="last-name" name="last-name" required />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Contact</legend>
+            <div class="form-group">
+              <label for="email">Email <span>*</span>:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Téléphone:</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0-9]+"
+                placeholder="Entrez votre numéro de téléphone"
+              />
+              <small>Entrez uniquement des chiffres (0-9).</small>
+            </div>
+            <div class="form-group">
+              <label for="address">Adresse:</label>
+              <input type="text" id="address" name="address" />
+            </div>
+          </fieldset>
+          <div class="form-group">
+            <label for="summary">Résumé:</label>
+            <textarea id="summary" name="summary" rows="4"></textarea>
+          </div>
         </form>
         <button id="generate-btn">Générer CV</button>
       </section>
@@ -38,5 +67,7 @@
       </section>
     </main>
     <script src="script.js"></script>
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
