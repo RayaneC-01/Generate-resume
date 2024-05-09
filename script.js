@@ -1,14 +1,43 @@
-const generateBtn = document.getElementById('generate-btn')
+const generateBtn = document.getElementById('generate-btn');
 generateBtn.addEventListener('click', function () {
     // Récupérer les données du formulaire
-    const firstName = document.getElementById('first-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const address = document.getElementById('address').value;
-    const summary = document.getElementById('summary').value;
+    const formData = {
+        firstName: getValue('first-name'),
+        lastName: getValue('last-name'),
+        email: getValue('email'),
+        phone: getValue('phone'),
+        address: getValue('address'),
+        summary: getValue('summary')
+    };
 
-    // Générer le CV
+    // Vérifier si tous les champs sont remplis
+    const isFormValid = validateForm(formData);
+
+    if (isFormValid) {
+        // Générer le CV
+        generateCV(formData);
+    }
+});
+
+function getValue(id) {
+    return document.getElementById(id).value;
+}
+
+function validateForm(formData) {
+    const { firstName, lastName, email, phone, address, summary } = formData;
+    if (!firstName || !lastName || !email || !phone || !address || !summary) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: 'Veuillez remplir tous les champs.',
+        });
+        return false;
+    }
+    return true;
+}
+
+function generateCV(formData) {
+    const { firstName, lastName, email, phone, address, summary } = formData;
     const cvOutput = document.getElementById('cv-output');
     cvOutput.innerHTML = `
         <h3>${firstName} ${lastName}</h3>
@@ -18,4 +47,4 @@ generateBtn.addEventListener('click', function () {
         <h4>Résumé</h4>
         <p>${summary}</p>
     `;
-});
+}
