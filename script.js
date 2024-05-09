@@ -82,4 +82,16 @@ function generateCV(formData) {
         <p>${references}</p>
     `;
 }
+document.getElementById('download-pdf-btn').addEventListener('click', function () {
+    // Créer une instance de jsPDF
+    let doc = new jsPDF();
 
+    // Ajouter le contenu du CV au PDF
+    let cvOutput = document.getElementById('cv-output');
+    doc.html(cvOutput, {
+        callback: function (pdf) {
+            // Télécharger le PDF
+            pdf.save('cv.pdf');
+        }
+    });
+});
