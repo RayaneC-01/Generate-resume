@@ -2,7 +2,10 @@
 const generateBtn = document.getElementById('generate-btn');
 
 // Ajouter un écouteur d'événements sur le clic du bouton
-generateBtn.addEventListener('click', function () {
+generateBtn.addEventListener('click', function (event) {
+    // Empêcher le comportement par défaut du bouton (soumission du formulaire et rafraîchissement de la page)
+    event.preventDefault();
+
     // Récupérer les données du formulaire
     const formData = {
         firstName: getValue('first-name'),
