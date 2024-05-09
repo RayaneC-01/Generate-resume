@@ -18,107 +18,102 @@
     />
   </head>
   <body>
-    <header class="bg-dark text-white text-center py-4">
-      <h1>Générateur de CV en ligne</h1>
-    </header>
-    <main class="container py-4">
-      <section id="form-section">
-        <h2 class="mb-4">Informations personnelles</h2>
-        <form id="cv-form">
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="first-name" class="form-label"
-                >Prénom <span>*</span>:</label
-              >
+    <div class="container">
+      <header class="mb-5">
+        <h1 class="text-center">Curriculum Vitae</h1>
+      </header>
+
+      <section id="personal-info" class="mb-5">
+        <h2>Informations personnelles</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="first-name" class="form-label">Prénom</label>
               <input
                 type="text"
                 class="form-control"
                 id="first-name"
-                name="first-name"
                 required
               />
             </div>
-            <div class="col-md-6">
-              <label for="last-name" class="form-label"
-                >Nom <span>*</span>:</label
-              >
+            <div class="mb-3">
+              <label for="last-name" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="last-name" required />
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Adresse</label>
+              <input type="text" class="form-control" id="address" />
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Téléphone</label>
               <input
-                type="text"
+                type="tel"
                 class="form-control"
-                id="last-name"
-                name="last-name"
+                id="phone"
+                pattern="[0-9]+"
                 required
               />
             </div>
           </div>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="email" class="form-label"
-                >Email <span>*</span>:</label
-              >
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                required
-              />
-            </div>
-            <div class="col-md-6">
-              <label for="phone" class="form-label">Téléphone:</label>
-              <div class="input-group">
-                <select
-                  class="form-select"
-                  id="country-code"
-                  name="country-code"
-                >
-                  <option value="+1">États-Unis (+1)</option>
-                  <option value="+33">France (+33)</option>
-                  <option value="+49">Allemagne (+49)</option>
-                  <!-- Ajoutez d'autres options pour les autres pays -->
-                </select>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="phone"
-                  name="phone"
-                  pattern="[0-9]+"
-                  placeholder="Entrez votre numéro de téléphone"
-                  required
-                />
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="address" class="form-label">Adresse:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="address"
-              name="address"
-            />
-          </div>
-
-          <button type="button" class="btn btn-primary" id="generate-btn">Générer CV</button>
-
-        </form>
-      </section>
-      <section id="cv-section">
-        <h2>Votre CV</h2>
-        <div id="cv-output">
-          <!-- Les informations du CV généré seront affichées ici -->
         </div>
       </section>
-    </main>
-    <!-- Bootstrap JS -->
+
+      <section id="professional-objective" class="mb-5">
+        <h2>Objectif professionnel</h2>
+        <textarea class="form-control" id="objective" rows="3"></textarea>
+      </section>
+
+      <section id="experience" class="mb-5">
+        <h2>Expérience professionnelle</h2>
+        <!-- Ajouter les champs nécessaires pour les expériences professionnelles -->
+      </section>
+
+      <section id="education" class="mb-5">
+        <h2>Formation académique</h2>
+        <!-- Ajouter les champs nécessaires pour la formation académique -->
+      </section>
+
+      <section id="skills" class="mb-5">
+        <h2>Compétences</h2>
+        <!-- Ajouter les champs nécessaires pour les compétences -->
+      </section>
+
+      <section id="achievements" class="mb-5">
+        <h2>Réalisations</h2>
+        <!-- Ajouter les champs nécessaires pour les réalisations -->
+      </section>
+
+      <section id="languages" class="mb-5">
+        <h2>Langues</h2>
+        <!-- Ajouter les champs nécessaires pour les langues -->
+      </section>
+
+      <section id="interests" class="mb-5">
+        <h2>Centres d'intérêt</h2>
+        <!-- Ajouter les champs nécessaires pour les centres d'intérêt -->
+      </section>
+
+      <section id="references" class="mb-5">
+        <h2>Références</h2>
+        <!-- Ajouter les champs nécessaires pour les références -->
+      </section>
+
+      <div class="text-center">
+        <button id="generate-pdf-btn" class="btn btn-primary">
+          Générer PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <!-- Bootstrap JavaScript -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <!-- SweetAlert2 JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Votre script JavaScript -->
-    <script src="script.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   </body>
 </html>
