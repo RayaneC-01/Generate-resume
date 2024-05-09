@@ -38,16 +38,26 @@
             </div>
             <div class="form-group">
               <label for="phone">Téléphone:</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]+"
-                placeholder="Entrez votre numéro de téléphone"
-              />
+              <div>
+                <select id="country-code" name="country-code">
+                  <option value="+1">États-Unis (+1)</option>
+                  <option value="+33">France (+33)</option>
+                  <option value="+49">Allemagne (+49)</option>
+                  <!-- Ajoutez d'autres options pour les autres pays -->
+                </select>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]+"
+                  placeholder="Entrez votre numéro de téléphone"
+                  required
+                />
+              </div>
               <br />
               <small>Entrez uniquement des chiffres (0-9).</small>
             </div>
+
             <div class="form-group">
               <label for="address">Adresse:</label>
               <input type="text" id="address" name="address" />
