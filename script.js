@@ -82,6 +82,7 @@ function generateCV(formData) {
         <p>${references}</p>
     `;
 }
+
 document.getElementById('download-pdf-btn').addEventListener('click', function () {
     // Créer une instance de jsPDF
     let doc = new jsPDF();
